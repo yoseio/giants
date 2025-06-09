@@ -10,9 +10,9 @@ export default function AddPaperPage() {
           <CardTitle>Add Paper</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
-          <form className="space-y-4">
-            <Input placeholder="Title" required />
-            <Input placeholder="Authors" required />
+          <form className="space-y-4" encType="multipart/form-data">
+            <Input placeholder="DOI" name="doi" required />
+            <Input type="file" accept="application/pdf" name="pdf" required />
             <Button type="submit">Save</Button>
           </form>
           <p className="text-sm text-muted-foreground">
