@@ -15,6 +15,9 @@ export default function AddPaperPage() {
             <Input placeholder="Authors" required />
             <Button type="submit">Save</Button>
           </form>
+          <p className="text-sm text-muted-foreground">
+            This demo form does not actually save data.
+          </p>
         </CardContent>
       </Card>
     </main>
