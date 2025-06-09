@@ -20,7 +20,7 @@ export async function POST(req: NextRequest) {
 
   const hash = createHash('sha256').update(doi).digest('hex')
   const branch = `add-paper-${hash}`
-  const path = `${hash}.pdf`
+  const path = `papers/${hash}.pdf`
 
   const headers = {
     Authorization: `Bearer ${token}`,
