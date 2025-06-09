@@ -10,13 +10,18 @@ export default function AddPaperPage() {
           <CardTitle>Add Paper</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
-          <form className="space-y-4" encType="multipart/form-data">
+          <form
+            className="space-y-4"
+            action="/api/papers/add"
+            method="post"
+            encType="multipart/form-data"
+          >
             <Input placeholder="DOI" name="doi" required />
             <Input type="file" accept="application/pdf" name="pdf" required />
             <Button type="submit">Save</Button>
           </form>
           <p className="text-sm text-muted-foreground">
-            This demo form does not actually save data.
+            Submitting the form creates a pull request with the uploaded PDF.
           </p>
         </CardContent>
       </Card>
