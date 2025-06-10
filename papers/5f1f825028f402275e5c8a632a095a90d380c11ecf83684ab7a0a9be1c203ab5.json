@@ -1,0 +1,34 @@
+{
+  "paperId": "13cfe745d2860c88e1ea031ab2d4e240a885176a",
+  "title": "Machine learning in bioprocess development: From promise to practice",
+  "year": 2022,
+  "openAccessPdf": {
+    "url": "http://arxiv.org/pdf/2210.02200",
+    "status": "GREEN",
+    "license": null,
+    "disclaimer": "Notice: This content is from the open access paper or abstract available at https://arxiv.org/abs/2210.02200, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "authors": [
+    {
+      "authorId": "2117514220",
+      "name": "L. M. Helleckes"
+    },
+    {
+      "authorId": "91083088",
+      "name": "J. Hemmerich"
+    },
+    {
+      "authorId": "145791360",
+      "name": "W. Wiechert"
+    },
+    {
+      "authorId": "38323432",
+      "name": "E. Lieres"
+    },
+    {
+      "authorId": "2857637",
+      "name": "A. Grünberger"
+    }
+  ],
+  "abstract": "Fostered by novel analytical techniques, digitalization, and automation, modern bioprocess development provides large amounts of heterogeneous experimental data, containing valuable process information. In this context, data-driven methods like machine learning (ML) approaches have great potential to rationally explore large design spaces while exploiting experimental facilities most efficiently. Herein we demonstrate how ML methods have been applied so far in bioprocess development, especially in strain engineering and selection, bioprocess optimization, scale-up, monitoring, and control of bioprocesses. For each topic, we will highlight successful application cases, current challenges, and point out domains that can potentially benefit from technology transfer and further progress in the field of ML."
+}
