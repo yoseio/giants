@@ -2,7 +2,11 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getPaper, listPaperIds } from "@/lib/papers";
 import { notFound } from "next/navigation";
 
-export default async function PaperDetailPage({ params }: { params: Promise<{ id: string }> }) {
+export default async function PaperDetailPage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
   const { id } = await params;
   const paper = await getPaper(id);
   if (!paper) {

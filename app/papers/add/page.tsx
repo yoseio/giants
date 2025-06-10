@@ -21,7 +21,8 @@ export default function AddPaperPage() {
             <Button type="submit">Save</Button>
           </form>
           <p className="text-sm text-muted-foreground">
-            Submitting the form creates a pull request with the uploaded PDF in the
+            Submitting the form creates a pull request with the uploaded PDF in
+            the
             <code>papers</code> directory.
           </p>
         </CardContent>

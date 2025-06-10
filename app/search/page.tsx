@@ -1,10 +1,5 @@
-import Link from "next/link"
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
+import Link from "next/link";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Table,
   TableBody,
@@ -12,17 +7,21 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table"
-import { searchPapers } from "@/lib/papers"
-import { notFound } from "next/navigation"
+} from "@/components/ui/table";
+import { searchPapers } from "@/lib/papers";
+import { notFound } from "next/navigation";
 
-export default async function SearchPage({ searchParams }: { searchParams: Promise<{ q?: string }> }) {
+export default async function SearchPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ q?: string }>;
+}) {
   const params = (await searchParams) || {};
   const query = params.q || "";
   if (!query) {
     return notFound();
   }
-  const results = await searchPapers(query)
+  const results = await searchPapers(query);
 
   return (
     <main className="p-4">
