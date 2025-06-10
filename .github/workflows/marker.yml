@@ -38,5 +38,5 @@ jobs:
           git add -A
           if ! git diff --cached --quiet; then
             git commit -m "Add marker outputs"
-            git push
+            git push origin HEAD:${{ github.head_ref }}
           fi
