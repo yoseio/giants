@@ -3,7 +3,7 @@ name: Run Marker on changes
 on:
   pull_request:
     paths:
-      - "lib/**/*.ts"
+      - "papers/*.pdf"
     types: [opened, synchronize]
 
 jobs:
@@ -17,10 +17,10 @@ jobs:
         with:
           python-version: "3.x"
       - name: Install marker
-        run: pip install marker
+        run: pip install marker-pdf
       - name: Run marker script for changed files
         run: |
-          changed_files=$(git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }} -- 'lib/**/*.ts')
+          changed_files=$(git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }} -- 'papers/*.pdf')
           for file in $changed_files; do
             ./scripts/run_marker.sh "$file"
           done
