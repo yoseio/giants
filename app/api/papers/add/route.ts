@@ -1,109 +1,150 @@
-import { NextRequest, NextResponse } from 'next/server'
-import { createHash } from 'crypto'
+import { NextRequest, NextResponse } from "next/server";
+import { createHash } from "crypto";
+import { Octokit } from "@octokit/rest";
 
 export async function POST(req: NextRequest) {
-  const formData = await req.formData()
-  const doi = formData.get('doi')
-  const file = formData.get('pdf')
+  const formData = await req.formData();
+  const doi = formData.get("doi");
+  const file = formData.get("pdf");
 
-  if (!doi || typeof doi !== 'string' || !(file instanceof Blob)) {
-    return NextResponse.json({ error: 'Invalid input' }, { status: 400 })
+  if (!doi || typeof doi !== "string" || !(file instanceof Blob)) {
+    return NextResponse.json({ error: "Invalid input" }, { status: 400 });
   }
 
-  const owner = process.env.GITHUB_OWNER
-  const repo = process.env.GITHUB_REPO
-  const token = process.env.GITHUB_TOKEN
+  const owner = process.env.GITHUB_OWNER;
+  const repo = process.env.GITHUB_REPO;
+  const token = process.env.GITHUB_TOKEN;
 
   if (!owner || !repo || !token) {
-    return NextResponse.json({ error: 'Server not configured' }, { status: 500 })
+    return NextResponse.json(
+      { error: "Server not configured" },
+      { status: 500 },
+    );
   }
 
-  const hash = createHash('sha256').update(doi).digest('hex')
-  const branch = `add-paper-${hash}`
-  const pdfPath = `papers/${hash}.pdf`
-  const jsonPath = `papers/${hash}.json`
+  const hash = createHash("sha256").update(doi).digest("hex");
+  const branch = `add-paper-${hash}`;
+  const pdfPath = `papers/${hash}.pdf`;
+  const jsonPath = `papers/${hash}.json`;
 
-  const headers = {
-    Authorization: `Bearer ${token}`,
-    'User-Agent': 'giants-app',
-    Accept: 'application/vnd.github+json'
+  const octokit = new Octokit({
+    auth: token,
+    userAgent: "giants-app",
+  });
+
+  let repoData;
+  try {
+    ({ data: repoData } = await octokit.repos.get({ owner, repo }));
+  } catch (err) {
+    const message = err instanceof Error ? err.message : String(err);
+    return NextResponse.json(
+      { error: "Failed to get repo", details: message },
+      { status: 500 },
+    );
+  }
+  const defaultBranch = repoData.default_branch;
+
+  let refData;
+  try {
+    ({ data: refData } = await octokit.git.getRef({
+      owner,
+      repo,
+      ref: `heads/${defaultBranch}`,
+    }));
+  } catch (err) {
+    const message = err instanceof Error ? err.message : String(err);
+    return NextResponse.json(
+      { error: "Failed to get branch ref", details: message },
+      { status: 500 },
+    );
+  }
+  const baseSha = (refData.object as { sha: string }).sha;
+
+  try {
+    await octokit.git.createRef({
+      owner,
+      repo,
+      ref: `refs/heads/${branch}`,
+      sha: baseSha,
+    });
+  } catch (err) {
+    const message = err instanceof Error ? err.message : String(err);
+    return NextResponse.json(
+      { error: "Failed to create branch", details: message },
+      { status: 500 },
+    );
   }
 
-  const repoRes = await fetch(`https://api.github.com/repos/${owner}/${repo}`, { headers })
-  if (!repoRes.ok) {
-    const text = await repoRes.text()
-    return NextResponse.json({ error: 'Failed to get repo', details: text }, { status: 500 })
-  }
-  const repoData = await repoRes.json()
-  const defaultBranch = repoData.default_branch
-
-  const refRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/git/ref/heads/${defaultBranch}`, { headers })
-  if (!refRes.ok) {
-    const text = await refRes.text()
-    return NextResponse.json({ error: 'Failed to get branch ref', details: text }, { status: 500 })
-  }
-  const refData = await refRes.json()
-  const baseSha = refData.object.sha
-
-  const createBranchRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/git/refs`, {
-    method: 'POST',
-    headers: { ...headers, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ ref: `refs/heads/${branch}`, sha: baseSha })
-  })
-  if (!createBranchRes.ok) {
-    const text = await createBranchRes.text()
-    return NextResponse.json({ error: 'Failed to create branch', details: text }, { status: 500 })
-  }
-
-  const fields = 'paperId,title,abstract,year,authors.name'
+  const fields = "paperId,title,abstract,year,authors.name";
   const metaRes = await fetch(
-    `https://api.semanticscholar.org/graph/v1/paper/DOI:${encodeURIComponent(doi)}?fields=${fields}`
-  )
+    `https://api.semanticscholar.org/graph/v1/paper/DOI:${encodeURIComponent(doi)}?fields=${fields}`,
+  );
   if (!metaRes.ok) {
-    const text = await metaRes.text()
-    return NextResponse.json({ error: 'Failed to fetch metadata', details: text }, { status: 500 })
+    const text = await metaRes.text();
+    return NextResponse.json(
+      { error: "Failed to fetch metadata", details: text },
+      { status: 500 },
+    );
   }
-  const paperData = await metaRes.json()
-  const jsonContent = Buffer.from(JSON.stringify(paperData, null, 2)).toString('base64')
+  const paperData = await metaRes.json();
+  const jsonContent = Buffer.from(JSON.stringify(paperData, null, 2)).toString(
+    "base64",
+  );
 
-  const createJsonRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${jsonPath}`, {
-    method: 'PUT',
-    headers: { ...headers, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ message: `Add metadata for ${doi}`, content: jsonContent, branch })
-  })
-  if (!createJsonRes.ok) {
-    const text = await createJsonRes.text()
-    return NextResponse.json({ error: 'Failed to create metadata file', details: text }, { status: 500 })
+  try {
+    await octokit.repos.createOrUpdateFileContents({
+      owner,
+      repo,
+      path: jsonPath,
+      message: `Add metadata for ${doi}`,
+      content: jsonContent,
+      branch,
+    });
+  } catch (err) {
+    const message = err instanceof Error ? err.message : String(err);
+    return NextResponse.json(
+      { error: "Failed to create metadata file", details: message },
+      { status: 500 },
+    );
   }
 
-  const buffer = Buffer.from(await (file as Blob).arrayBuffer())
-  const content = buffer.toString('base64')
+  const buffer = Buffer.from(await (file as Blob).arrayBuffer());
+  const content = buffer.toString("base64");
 
-  const createFileRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${pdfPath}`, {
-    method: 'PUT',
-    headers: { ...headers, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ message: `Add paper ${doi}`, content, branch })
-  })
-  if (!createFileRes.ok) {
-    const text = await createFileRes.text()
-    return NextResponse.json({ error: 'Failed to create file', details: text }, { status: 500 })
+  try {
+    await octokit.repos.createOrUpdateFileContents({
+      owner,
+      repo,
+      path: pdfPath,
+      message: `Add paper ${doi}`,
+      content,
+      branch,
+    });
+  } catch (err) {
+    const message = err instanceof Error ? err.message : String(err);
+    return NextResponse.json(
+      { error: "Failed to create file", details: message },
+      { status: 500 },
+    );
   }
 
-  const prRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/pulls`, {
-    method: 'POST',
-    headers: { ...headers, 'Content-Type': 'application/json' },
-    body: JSON.stringify({
+  let prData;
+  try {
+    ({ data: prData } = await octokit.pulls.create({
+      owner,
+      repo,
       title: `Add paper ${doi}`,
       head: branch,
       base: defaultBranch,
-      body: 'Automated paper upload'
-    })
-  })
-  if (!prRes.ok) {
-    const text = await prRes.text()
-    return NextResponse.json({ error: 'Failed to create pull request', details: text }, { status: 500 })
+      body: "Automated paper upload",
+    }));
+  } catch (err) {
+    const message = err instanceof Error ? err.message : String(err);
+    return NextResponse.json(
+      { error: "Failed to create pull request", details: message },
+      { status: 500 },
+    );
   }
-  const prData = await prRes.json()
 
-  return NextResponse.json({ url: prData.html_url })
+  return NextResponse.json({ url: prData.html_url });
 }
