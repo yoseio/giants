@@ -1,13 +1,18 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { getPaper } from "@/lib/demo-data"
-import { notFound } from "next/navigation"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { getPaper, listPaperIds } from "@/lib/papers";
+import { notFound } from "next/navigation";
 
-export default function PaperDetailPage({ params }: { params: { id: string } }) {
-  const { id } = params
-  const paper = getPaper(id)
+export default async function PaperDetailPage({
+  params,
+}: {
+  params: { id: string };
+}) {
+  const { id } = params;
+  const paper = await getPaper(id);
   if (!paper) {
-    return notFound()
+    return notFound();
   }
+  const authors = paper.authors.map((a) => a.name).join(", ");
   return (
     <main className="p-4 flex justify-center">
       <Card className="w-full max-w-xl">
@@ -15,10 +20,15 @@ export default function PaperDetailPage({ params }: { params: { id: string } }) 
           <CardTitle>{paper.title}</CardTitle>
         </CardHeader>
         <CardContent className="space-y-2">
-          <p className="text-sm text-muted-foreground">{paper.authors}</p>
-          <p>{paper.abstract}</p>
+          <p className="text-sm text-muted-foreground">{authors}</p>
+          <p>{paper.abstract || "No abstract available."}</p>
         </CardContent>
       </Card>
     </main>
-  )
+  );
+}
+
+export async function generateStaticParams() {
+  const ids = await listPaperIds();
+  return ids.map((id) => ({ id }));
 }
