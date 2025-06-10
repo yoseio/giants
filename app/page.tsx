@@ -17,7 +17,7 @@ export default async function Home() {
   const papers = await Promise.all(ids.map((id) => getPaper(id)));
 
   return (
-    <main className="p-4 space-y-6">
+    <main className="container mx-auto p-4 space-y-6">
       <Card className="max-w-2xl mx-auto">
         <CardHeader>
           <CardTitle>Standing on the Shoulders of Giants</CardTitle>

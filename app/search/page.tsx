@@ -24,8 +24,8 @@ export default async function SearchPage({
   const results = await searchPapers(query);
 
   return (
-    <main className="p-4">
-      <Card>
+    <main className="container mx-auto p-4">
+      <Card className="max-w-2xl mx-auto">
         <CardHeader>
           <CardTitle>{`Search results for "${query}"`}</CardTitle>
         </CardHeader>
