@@ -25,8 +25,8 @@ export default async function Home() {
         <CardContent className="space-y-4">
           <p>Manage your research papers with a simple workflow.</p>
           <div className="flex flex-col sm:flex-row gap-2">
-            <form action="/search" className="flex-1 max-w-sm">
-              <Input name="q" placeholder="Search papers" />
+            <form action="/search" className="flex-1">
+              <Input name="q" placeholder="Search papers" className="w-full" />
             </form>
             <Button asChild className="whitespace-nowrap">
               <Link href="/papers/add">Add Paper</Link>
