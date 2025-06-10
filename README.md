@@ -36,4 +36,4 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
 ## GitHub Upload Configuration
-Set the `GITHUB_OWNER`, `GITHUB_REPO` and `GITHUB_TOKEN` environment variables to enable the paper upload API. Uploaded PDFs are placed in the `papers` directory of your repository.
+Set the `GITHUB_OWNER`, `GITHUB_REPO` and `GITHUB_TOKEN` environment variables to enable the paper upload API. Uploaded PDFs and metadata JSON files are placed in the `papers` directory of your repository.

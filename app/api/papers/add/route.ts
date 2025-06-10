@@ -20,7 +20,8 @@ export async function POST(req: NextRequest) {
 
   const hash = createHash('sha256').update(doi).digest('hex')
   const branch = `add-paper-${hash}`
-  const path = `papers/${hash}.pdf`
+  const pdfPath = `papers/${hash}.pdf`
+  const jsonPath = `papers/${hash}.json`
 
   const headers = {
     Authorization: `Bearer ${token}`,
@@ -54,10 +55,31 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Failed to create branch', details: text }, { status: 500 })
   }
 
+  const fields = 'paperId,title,abstract,year,authors.name'
+  const metaRes = await fetch(
+    `https://api.semanticscholar.org/graph/v1/paper/DOI:${encodeURIComponent(doi)}?fields=${fields}`
+  )
+  if (!metaRes.ok) {
+    const text = await metaRes.text()
+    return NextResponse.json({ error: 'Failed to fetch metadata', details: text }, { status: 500 })
+  }
+  const paperData = await metaRes.json()
+  const jsonContent = Buffer.from(JSON.stringify(paperData, null, 2)).toString('base64')
+
+  const createJsonRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${jsonPath}`, {
+    method: 'PUT',
+    headers: { ...headers, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ message: `Add metadata for ${doi}`, content: jsonContent, branch })
+  })
+  if (!createJsonRes.ok) {
+    const text = await createJsonRes.text()
+    return NextResponse.json({ error: 'Failed to create metadata file', details: text }, { status: 500 })
+  }
+
   const buffer = Buffer.from(await (file as Blob).arrayBuffer())
   const content = buffer.toString('base64')
 
-  const createFileRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`, {
+  const createFileRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${pdfPath}`, {
     method: 'PUT',
     headers: { ...headers, 'Content-Type': 'application/json' },
     body: JSON.stringify({ message: `Add paper ${doi}`, content, branch })
