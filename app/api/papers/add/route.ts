@@ -5,9 +5,16 @@ import { Octokit } from "@octokit/rest";
 export async function POST(req: NextRequest) {
   const formData = await req.formData();
   const doi = formData.get("doi");
+  const metadata = formData.get("metadata");
   const file = formData.get("pdf");
 
-  if (!doi || typeof doi !== "string" || !(file instanceof Blob)) {
+  if (
+    !doi ||
+    typeof doi !== "string" ||
+    !metadata ||
+    typeof metadata !== "string" ||
+    !(file instanceof Blob)
+  ) {
     return NextResponse.json({ error: "Invalid input" }, { status: 400 });
   }
 
@@ -75,18 +82,7 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  const fields = "paperId,title,abstract,year,authors.name";
-  const metaRes = await fetch(
-    `https://api.semanticscholar.org/graph/v1/paper/DOI:${encodeURIComponent(doi)}?fields=${fields}`,
-  );
-  if (!metaRes.ok) {
-    const text = await metaRes.text();
-    return NextResponse.json(
-      { error: "Failed to fetch metadata", details: text },
-      { status: 500 },
-    );
-  }
-  const paperData = await metaRes.json();
+  const paperData = JSON.parse(metadata);
   const jsonContent = Buffer.from(JSON.stringify(paperData, null, 2)).toString(
     "base64",
   );
