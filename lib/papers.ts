@@ -33,3 +33,20 @@ export async function getPaper(id: string): Promise<Paper | null> {
     return null;
   }
 }
+
+export type PaperWithId = Paper & { id: string };
+
+export async function searchPapers(query: string): Promise<PaperWithId[]> {
+  const q = query.toLowerCase();
+  const ids = await listPaperIds();
+  const results: PaperWithId[] = [];
+  for (const id of ids) {
+    const paper = await getPaper(id);
+    if (!paper) continue;
+    const authors = paper.authors.map((a) => a.name).join(", ").toLowerCase();
+    if (paper.title.toLowerCase().includes(q) || authors.includes(q)) {
+      results.push({ id, ...paper });
+    }
+  }
+  return results;
+}

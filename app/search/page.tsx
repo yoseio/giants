@@ -13,15 +13,16 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
-import { searchPapers } from "@/lib/demo-data"
+import { searchPapers } from "@/lib/papers"
 import { notFound } from "next/navigation"
 
-export default function SearchPage({ searchParams }: { searchParams?: { q?: string } }) {
-  const query = searchParams?.q || "";
+export default async function SearchPage({ searchParams }: { searchParams: Promise<{ q?: string }> }) {
+  const params = (await searchParams) || {};
+  const query = params.q || "";
   if (!query) {
     return notFound();
   }
-  const results = searchPapers(query)
+  const results = await searchPapers(query)
 
   return (
     <main className="p-4">
@@ -39,14 +40,17 @@ export default function SearchPage({ searchParams }: { searchParams?: { q?: stri
             </TableHeader>
             <TableBody>
               {results.length ? (
-                results.map((paper) => (
-                  <TableRow key={paper.id}>
-                    <TableCell>
-                      <Link href={`/papers/${paper.id}`}>{paper.title}</Link>
-                    </TableCell>
-                    <TableCell>{paper.authors}</TableCell>
-                  </TableRow>
-                ))
+                results.map((paper) => {
+                  const authors = paper.authors.map((a) => a.name).join(", ");
+                  return (
+                    <TableRow key={paper.id}>
+                      <TableCell>
+                        <Link href={`/papers/${paper.id}`}>{paper.title}</Link>
+                      </TableCell>
+                      <TableCell>{authors}</TableCell>
+                    </TableRow>
+                  );
+                })
               ) : (
                 <TableRow>
                   <TableCell colSpan={2}>No results found.</TableCell>
