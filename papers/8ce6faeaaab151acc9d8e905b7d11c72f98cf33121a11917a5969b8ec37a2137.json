@@ -1,0 +1,30 @@
+{
+  "paperId": "07c4549be429a52274bc0ec083bf5598a3e5c365",
+  "title": "Modeling and Discovering Vulnerabilities with Code Property Graphs",
+  "year": 2014,
+  "openAccessPdf": {
+    "url": "http://user.informatik.uni-goettingen.de/%7Ekrieck/docs/2014-ieeesp.pdf",
+    "status": "GREEN",
+    "license": null,
+    "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1109/SP.2014.44?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1109/SP.2014.44, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "authors": [
+    {
+      "authorId": "2944486",
+      "name": "Fabian Yamaguchi"
+    },
+    {
+      "authorId": "2641234",
+      "name": "N. Golde"
+    },
+    {
+      "authorId": "79405068",
+      "name": "Dan Arp"
+    },
+    {
+      "authorId": "144825749",
+      "name": "Konrad Rieck"
+    }
+  ],
+  "abstract": null
+}
