@@ -4,8 +4,8 @@ import { Button } from "@/components/ui/button";
 
 export default function AddPaperPage() {
   return (
-    <main className="p-4 flex justify-center">
-      <Card className="w-full max-w-xl">
+    <main className="container mx-auto p-4">
+      <Card className="w-full max-w-2xl mx-auto">
         <CardHeader>
           <CardTitle>Add Paper</CardTitle>
         </CardHeader>
