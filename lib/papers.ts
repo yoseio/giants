@@ -18,10 +18,14 @@ export type Paper = {
 const papersDir = path.join(process.cwd(), "papers");
 
 export async function listPaperIds(): Promise<string[]> {
-  const files = await fs.readdir(papersDir);
-  return files
-    .filter((f) => f.endsWith(".json"))
-    .map((f) => f.replace(/\.json$/, ""));
+  try {
+    const files = await fs.readdir(papersDir);
+    return files
+      .filter((f) => f.endsWith(".json"))
+      .map((f) => f.replace(/\.json$/, ""));
+  } catch {
+    return [];
+  }
 }
 
 export async function getPaper(id: string): Promise<Paper | null> {
@@ -43,7 +47,10 @@ export async function searchPapers(query: string): Promise<PaperWithId[]> {
   for (const id of ids) {
     const paper = await getPaper(id);
     if (!paper) continue;
-    const authors = paper.authors.map((a) => a.name).join(", ").toLowerCase();
+    const authors = paper.authors
+      .map((a) => a.name)
+      .join(", ")
+      .toLowerCase();
     if (paper.title.toLowerCase().includes(q) || authors.includes(q)) {
       results.push({ id, ...paper });
     }
