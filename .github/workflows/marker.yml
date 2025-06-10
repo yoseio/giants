@@ -26,6 +26,11 @@ jobs:
             [ -z "$file" ] && continue
             ./scripts/run_marker.sh "$file"
           done
+      - name: Cache Marker models
+        uses: actions/cache@v3
+        with:
+          path: /home/runner/.cache/datalab/models/
+          key: datalab-models-${{ runner.os }}
       - name: Commit marker outputs
         run: |
           git config user.name "github-actions[bot]"
