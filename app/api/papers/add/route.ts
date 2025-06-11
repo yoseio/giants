@@ -75,18 +75,38 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  const fields = "paperId,title,abstract,year,authors.name";
-  const metaRes = await fetch(
-    `https://api.semanticscholar.org/graph/v1/paper/DOI:${encodeURIComponent(doi)}?fields=${fields}`,
-  );
-  if (!metaRes.ok) {
-    const text = await metaRes.text();
-    return NextResponse.json(
-      { error: "Failed to fetch metadata", details: text },
-      { status: 500 },
-    );
+  const title = formData.get("title");
+  const year = formData.get("year");
+  const authors = formData.get("authors");
+  const abstract = formData.get("abstract");
+
+  if (
+    !title ||
+    typeof title !== "string" ||
+    !authors ||
+    typeof authors !== "string"
+  ) {
+    return NextResponse.json({ error: "Invalid input" }, { status: 400 });
   }
-  const paperData = await metaRes.json();
+
+  const authorList = authors
+    .split(",")
+    .map((a) => a.trim())
+    .filter(Boolean)
+    .map((name) => ({ authorId: "", name }));
+
+  const paperData = {
+    paperId: doi,
+    title,
+    abstract:
+      typeof abstract === "string" && abstract.trim() ? abstract.trim() : null,
+    year:
+      year && typeof year === "string" && year.trim()
+        ? Number(year)
+        : undefined,
+    authors: authorList,
+  };
+
   const jsonContent = Buffer.from(JSON.stringify(paperData, null, 2)).toString(
     "base64",
   );

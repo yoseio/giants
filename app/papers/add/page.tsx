@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 
 export default function AddPaperPage() {
@@ -17,6 +18,14 @@ export default function AddPaperPage() {
             encType="multipart/form-data"
           >
             <Input placeholder="DOI" name="doi" required />
+            <Input placeholder="Title" name="title" required />
+            <Input placeholder="Year" name="year" type="number" />
+            <Input
+              placeholder="Authors (comma separated)"
+              name="authors"
+              required
+            />
+            <Textarea placeholder="Abstract" name="abstract" />
             <Input type="file" accept="application/pdf" name="pdf" required />
             <Button type="submit">Save</Button>
           </form>
