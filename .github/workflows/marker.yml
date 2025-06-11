@@ -3,7 +3,7 @@ name: Run Marker on changes
 on:
   pull_request:
     paths:
-      - "papers/*.pdf"
+      - "papers/**"
     types: [opened, synchronize]
 
 permissions:
