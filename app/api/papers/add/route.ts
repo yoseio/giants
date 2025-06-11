@@ -93,7 +93,7 @@ export async function POST(req: NextRequest) {
     .split(",")
     .map((a) => a.trim())
     .filter(Boolean)
-    .map((name) => ({ authorId: "", name }));
+    .map((name) => ({ name }));
 
   const paperData = {
     paperId: doi,
