@@ -2,7 +2,6 @@ import fs from "fs/promises";
 import path from "path";
 
 export type Author = {
-  authorId: string;
   name: string;
 };
 
