@@ -1,0 +1,1564 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Modeling and Discovering Vulnerabilities\nwith Code Property Graphs",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          159.7252560853958,
+          121.30328369140625
+        ],
+        [
+          450.90479278564453,
+          121.30328369140625
+        ],
+        [
+          449.70948028564453,
+          155.979248046875
+        ],
+        [
+          158.5299435853958,
+          155.979248046875
+        ]
+      ]
+    },
+    {
+      "title": "Keywords\u2014Vulnerabilities; Static Analysis; Graph Databases",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          67.82393646240234,
+          423.78826904296875
+        ],
+        [
+          287.9268808364868,
+          423.4738841056824
+        ],
+        [
+          286.7315683364868,
+          432.2418518066406
+        ],
+        [
+          67.82393646240234,
+          433.1095633506775
+        ]
+      ]
+    },
+    {
+      "title": "I. INTRODUCTION",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          138.9751410484314,
+          449.48199462890625
+        ],
+        [
+          217.4305100440979,
+          448.96805334091187
+        ],
+        [
+          216.84999084472656,
+          458.8522033691406
+        ],
+        [
+          137.7798285484314,
+          459.3203330039978
+        ]
+      ]
+    },
+    {
+      "title": "II. REPRESENTATIONS OF CODE",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          110.5872443318367,
+          399.0828552246094
+        ],
+        [
+          245.23085021972656,
+          399.0828552246094
+        ],
+        [
+          245.23085021972656,
+          408.46783447265625
+        ],
+        [
+          109.3919318318367,
+          408.46783447265625
+        ]
+      ]
+    },
+    {
+      "title": "A. Abstract Syntax Trees (AST)",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          313.7376403808594,
+          72.06579673290253
+        ],
+        [
+          435.1098937988281,
+          72.06579673290253
+        ],
+        [
+          435.1098937988281,
+          81.66192626953125
+        ],
+        [
+          313.7376403808594,
+          81.66192626953125
+        ]
+      ]
+    },
+    {
+      "title": "B. Control Flow Graphs (CFG)",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          312.54762625694275,
+          322.6933114528656
+        ],
+        [
+          438.60406851768494,
+          322.6933114528656
+        ],
+        [
+          438.60406851768494,
+          332.8020935058594
+        ],
+        [
+          312.54762625694275,
+          332.8020935058594
+        ]
+      ]
+    },
+    {
+      "title": "C. Program Dependence Graphs (PDG)",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          312.5701696872711,
+          635.9700779914856
+        ],
+        [
+          470.7748568058014,
+          635.9700779914856
+        ],
+        [
+          470.7748568058014,
+          645.7855529785156
+        ],
+        [
+          312.5701696872711,
+          645.7855529785156
+        ]
+      ]
+    },
+    {
+      "title": "III. PROPERTY GRAPHS AND TRAVERSALS",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          89.48575454950333,
+          494.546875
+        ],
+        [
+          266.6700744628906,
+          494.546875
+        ],
+        [
+          266.6700744628906,
+          503.9171142578125
+        ],
+        [
+          89.48575454950333,
+          503.9171142578125
+        ]
+      ]
+    },
+    {
+      "title": "IV. CODE PROPERTY GRAPHS",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          114.87254798412323,
+          494.972195148468
+        ],
+        [
+          241.07169234752655,
+          494.972195148468
+        ],
+        [
+          241.07169234752655,
+          504.3928527832031
+        ],
+        [
+          114.87254798412323,
+          504.3928527832031
+        ]
+      ]
+    },
+    {
+      "title": "A. Transforming the Abstract Syntax Tree",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          58.5559219121933,
+          615.9966430664062
+        ],
+        [
+          221.05828857421875,
+          615.9966430664062
+        ],
+        [
+          221.05828857421875,
+          625.3668518066406
+        ],
+        [
+          58.5559219121933,
+          625.3668518066406
+        ]
+      ]
+    },
+    {
+      "title": "B. Transforming the Control Flow Graph",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          313.0902736186981,
+          180.51031172275543
+        ],
+        [
+          474.449462890625,
+          180.51031172275543
+        ],
+        [
+          474.449462890625,
+          190.060791015625
+        ],
+        [
+          313.0902736186981,
+          190.060791015625
+        ]
+      ]
+    },
+    {
+      "title": "C. Transforming the Program Dependence Graph",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          313.4904742240906,
+          291.7740173339844
+        ],
+        [
+          505.9937138557434,
+          291.7740173339844
+        ],
+        [
+          505.9305419921875,
+          301.14422607421875
+        ],
+        [
+          312.2951617240906,
+          301.14422607421875
+        ]
+      ]
+    },
+    {
+      "title": "D. Combining the Representations",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          313.0285527706146,
+          433.77911376953125
+        ],
+        [
+          446.4172275066376,
+          433.77911376953125
+        ],
+        [
+          446.3578186035156,
+          443.1493225097656
+        ],
+        [
+          311.8332402706146,
+          443.1493225097656
+        ]
+      ]
+    },
+    {
+      "title": "V. TRAVERSALS FOR\nWELL-KNOWN TYPES OF VULNERABILITIES",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          89.49925994873047,
+          271.44854736328125
+        ],
+        [
+          267.60595703125,
+          271.44854736328125
+        ],
+        [
+          267.60595703125,
+          291.1197204589844
+        ],
+        [
+          89.49925994873047,
+          291.1197204589844
+        ]
+      ]
+    },
+    {
+      "title": "A. Motivational Example",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          58.33293163776398,
+          430.0566945075989
+        ],
+        [
+          157.59674072265625,
+          430.0566945075989
+        ],
+        [
+          157.59674072265625,
+          439.8106994628906
+        ],
+        [
+          58.33293163776398,
+          439.8106994628906
+        ]
+      ]
+    },
+    {
+      "title": "B. Syntax-Only Vulnerability Descriptions",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          58.956432580947876,
+          200.58065843582153
+        ],
+        [
+          223.0534908771515,
+          200.58065843582153
+        ],
+        [
+          223.0534908771515,
+          210.33349609375
+        ],
+        [
+          58.956432580947876,
+          210.33349609375
+        ]
+      ]
+    },
+    {
+      "title": "MATCHp \u25e6 ARG1\nsprintf",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          403.89553928375244,
+          241.46533203125
+        ],
+        [
+          483.3905334472656,
+          241.46533203125
+        ],
+        [
+          483.3905334472656,
+          254.36236572265625
+        ],
+        [
+          403.89553928375244,
+          254.36236572265625
+        ]
+      ]
+    },
+    {
+      "title": "MATCHp \u25e6 ARG1\nmalloc",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          402.1665894985199,
+          378.19805908203125
+        ],
+        [
+          484.2894608974457,
+          378.19805908203125
+        ],
+        [
+          484.2894608974457,
+          391.094970703125
+        ],
+        [
+          402.1665894985199,
+          391.094970703125
+        ]
+      ]
+    },
+    {
+      "title": "C. Control-Flow Vulnerability Descriptions",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          58.822959423065186,
+          365.3387145996094
+        ],
+        [
+          226.99771118164062,
+          365.3387145996094
+        ],
+        [
+          226.99771118164062,
+          374.70892333984375
+        ],
+        [
+          58.822959423065186,
+          374.70892333984375
+        ]
+      ]
+    },
+    {
+      "title": "D. Taint-Style Vulnerability Descriptions",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          313.3598463535309,
+          397.26385498046875
+        ],
+        [
+          470.6843183040619,
+          397.26385498046875
+        ],
+        [
+          470.6843183040619,
+          406.6340637207031
+        ],
+        [
+          313.3598463535309,
+          406.6340637207031
+        ]
+      ]
+    },
+    {
+      "title": "VI. EVALUATION",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          140.4448961019516,
+          118.926025390625
+        ],
+        [
+          217.24879467487335,
+          118.926025390625
+        ],
+        [
+          217.24879467487335,
+          128.29620361328125
+        ],
+        [
+          140.4448961019516,
+          128.29620361328125
+        ]
+      ]
+    },
+    {
+      "title": "A. Implementation",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          59.114719927310944,
+          275.71282958984375
+        ],
+        [
+          132.06487745046616,
+          275.71282958984375
+        ],
+        [
+          132.06487745046616,
+          285.08306884765625
+        ],
+        [
+          59.114719927310944,
+          285.08306884765625
+        ]
+      ]
+    },
+    {
+      "title": "B. Coverage Analysis",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          313.4646842479706,
+          160.14501953125
+        ],
+        [
+          398.8711631298065,
+          159.44025313854218
+        ],
+        [
+          398.8711631298065,
+          169.51519775390625
+        ],
+        [
+          313.4646842479706,
+          169.51519775390625
+        ]
+      ]
+    },
+    {
+      "title": "C. Discovery of Vulnerabilities",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          59.24325031042099,
+          400.9749913215637
+        ],
+        [
+          179.7650706768036,
+          400.9749913215637
+        ],
+        [
+          179.7650706768036,
+          411.3094177246094
+        ],
+        [
+          59.24325031042099,
+          411.3094177246094
+        ]
+      ]
+    },
+    {
+      "title": "D. Case Study: Buffer Overflow Identification",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          313.7657775878906,
+          609.3392333984375
+        ],
+        [
+          490.7680706977844,
+          608.0951242446899
+        ],
+        [
+          490.2629089355469,
+          618.7094421386719
+        ],
+        [
+          313.2566499710083,
+          619.2827768325806
+        ]
+      ]
+    },
+    {
+      "title": "VII. LIMITATIONS",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          137.6490000486374,
+          412.6077103614807
+        ],
+        [
+          218.53030478954315,
+          412.6077103614807
+        ],
+        [
+          218.53030478954315,
+          422.10662841796875
+        ],
+        [
+          137.6490000486374,
+          422.10662841796875
+        ]
+      ]
+    },
+    {
+      "title": "VIII. RELATED WORK",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          383.2785873413086,
+          118.33709716796875
+        ],
+        [
+          480.43646240234375,
+          118.33709716796875
+        ],
+        [
+          480.43646240234375,
+          127.7152099609375
+        ],
+        [
+          383.2785873413086,
+          127.7152099609375
+        ]
+      ]
+    },
+    {
+      "title": "IX. CONCLUSION",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          138.14592218399048,
+          155.385498046875
+        ],
+        [
+          216.96443009376526,
+          155.385498046875
+        ],
+        [
+          216.25885009765625,
+          164.75567626953125
+        ],
+        [
+          136.95060968399048,
+          164.75567626953125
+        ]
+      ]
+    },
+    {
+      "title": "ACKNOWLEDGMENTS",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          133.23169147968292,
+          406.0784912109375
+        ],
+        [
+          222.71842181682587,
+          406.0784912109375
+        ],
+        [
+          221.52310931682587,
+          415.4486999511719
+        ],
+        [
+          132.03637897968292,
+          415.4486999511719
+        ]
+      ]
+    },
+    {
+      "title": "REFERENCES",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          150.5750126838684,
+          460.8844385147095
+        ],
+        [
+          204.13821411132812,
+          460.8844385147095
+        ],
+        [
+          204.13821411132812,
+          470.4151611328125
+        ],
+        [
+          150.5750126838684,
+          470.4151611328125
+        ]
+      ]
+    },
+    {
+      "title": "APPENDIX",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          396.952782869339,
+          301.6934814453125
+        ],
+        [
+          452.66595458984375,
+          301.6934814453125
+        ],
+        [
+          452.66595458984375,
+          311.0636901855469
+        ],
+        [
+          396.952782869339,
+          312.28813648223877
+        ]
+      ]
+    },
+    {
+      "title": "A. The Traversal TNODES",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          313.2821350097656,
+          314.81561279296875
+        ],
+        [
+          430.0779461860657,
+          313.32149505615234
+        ],
+        [
+          428.8826336860657,
+          324.2314453125
+        ],
+        [
+          313.2821350097656,
+          324.2314453125
+        ]
+      ]
+    },
+    {
+      "title": "B. The Traversals STATEMENT and FUNCTION",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          312.9232406616211,
+          457.09259033203125
+        ],
+        [
+          497.8604431152344,
+          456.57015466690063
+        ],
+        [
+          497.8604431152344,
+          466.5114440917969
+        ],
+        [
+          311.7279281616211,
+          466.92347288131714
+        ]
+      ]
+    },
+    {
+      "title": "C. PAIRS and PAIRFILTER",
+      "heading_level": null,
+      "page_id": 14,
+      "polygon": [
+        [
+          57.99346241354942,
+          72.29351806640625
+        ],
+        [
+          166.47409057617188,
+          72.29351806640625
+        ],
+        [
+          166.47409057617188,
+          81.7093505859375
+        ],
+        [
+          57.99346241354942,
+          81.7093505859375
+        ]
+      ]
+    },
+    {
+      "title": "D. Traversals for Type Information",
+      "heading_level": null,
+      "page_id": 14,
+      "polygon": [
+        [
+          59.05531087517738,
+          218.90216064453125
+        ],
+        [
+          196.0469720363617,
+          218.90216064453125
+        ],
+        [
+          196.0469720363617,
+          228.2723388671875
+        ],
+        [
+          59.05531087517738,
+          228.2723388671875
+        ]
+      ]
+    },
+    {
+      "title": "E. The Traversal UNSANITIZED",
+      "heading_level": null,
+      "page_id": 14,
+      "polygon": [
+        [
+          313.3295331001282,
+          72.2906494140625
+        ],
+        [
+          440.0975890159607,
+          72.14702796936035
+        ],
+        [
+          440.0975890159607,
+          81.70648193359375
+        ],
+        [
+          313.3295331001282,
+          82.14111363887787
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          226
+        ],
+        [
+          "Line",
+          104
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "Picture",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          309
+        ],
+        [
+          "Line",
+          112
+        ],
+        [
+          "TableCell",
+          22
+        ],
+        [
+          "Text",
+          10
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "ListItem",
+          3
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          498
+        ],
+        [
+          "Line",
+          129
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "TextInlineMath",
+          4
+        ],
+        [
+          "Figure",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "FigureGroup",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Equation",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          740
+        ],
+        [
+          "Line",
+          129
+        ],
+        [
+          "TextInlineMath",
+          7
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "SectionHeader",
+          5
+        ],
+        [
+          "ListItem",
+          4
+        ],
+        [
+          "Equation",
+          3
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          371
+        ],
+        [
+          "Line",
+          113
+        ],
+        [
+          "TableCell",
+          30
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "ListItem",
+          3
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          450
+        ],
+        [
+          "Line",
+          115
+        ],
+        [
+          "Text",
+          14
+        ],
+        [
+          "ListItem",
+          4
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "TextInlineMath",
+          3
+        ],
+        [
+          "Equation",
+          2
+        ],
+        [
+          "Footnote",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 6,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          456
+        ],
+        [
+          "Line",
+          116
+        ],
+        [
+          "Text",
+          11
+        ],
+        [
+          "ListItem",
+          6
+        ],
+        [
+          "TextInlineMath",
+          3
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "Equation",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 7,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          600
+        ],
+        [
+          "Line",
+          117
+        ],
+        [
+          "Text",
+          12
+        ],
+        [
+          "ListItem",
+          7
+        ],
+        [
+          "Equation",
+          4
+        ],
+        [
+          "TextInlineMath",
+          3
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "Footnote",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 8,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          273
+        ],
+        [
+          "Line",
+          119
+        ],
+        [
+          "TableCell",
+          67
+        ],
+        [
+          "Text",
+          10
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "Footnote",
+          1
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 9,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          278
+        ],
+        [
+          "Line",
+          100
+        ],
+        [
+          "TableCell",
+          42
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "ListItem",
+          4
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 10,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          610
+        ],
+        [
+          "Line",
+          118
+        ],
+        [
+          "TableCell",
+          100
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "ListItem",
+          4
+        ],
+        [
+          "Table",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "TextInlineMath",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "TableGroup",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "Equation",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 11,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          326
+        ],
+        [
+          "Line",
+          122
+        ],
+        [
+          "TableCell",
+          78
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 12,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          272
+        ],
+        [
+          "Line",
+          114
+        ],
+        [
+          "ListItem",
+          23
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 13,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          398
+        ],
+        [
+          "Line",
+          122
+        ],
+        [
+          "ListItem",
+          22
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Equation",
+          3
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 14,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          854
+        ],
+        [
+          "Line",
+          129
+        ],
+        [
+          "Text",
+          12
+        ],
+        [
+          "TextInlineMath",
+          10
+        ],
+        [
+          "Equation",
+          10
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "ListItem",
+          3
+        ],
+        [
+          "PageFooter",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/8ce6faeaaab151acc9d8e905b7d11c72f98cf33121a11917a5969b8ec37a2137"
+}
