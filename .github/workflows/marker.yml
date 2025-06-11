@@ -6,6 +6,10 @@ on:
       - "papers/*.pdf"
     types: [opened, synchronize]
 
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   marker:
     runs-on: ubuntu-latest
