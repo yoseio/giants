@@ -30,7 +30,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pip-
       - name: Install marker and dependencies
-        run: pip install marker-pdf openai markdown-it-py[plugins]
+        run: pip install marker-pdf openai markdown-it-py[plugins] tqdm
       - name: Cache Marker models
         uses: actions/cache@v3
         with:
