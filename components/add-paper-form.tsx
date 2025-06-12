@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { Loader2 } from "lucide-react";
+import { toast } from "sonner";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -75,9 +77,10 @@ export function AddPaperForm() {
       });
       if (!res.ok) {
         const json = await res.json();
-        alert(json.error || "Failed to submit");
+        toast.error(json.error || "Failed to submit");
       } else {
         const json = await res.json();
+        toast.success("Pull request created");
         if (json.url) {
           window.location.href = json.url;
         }
@@ -177,7 +180,8 @@ export function AddPaperForm() {
           )}
         />
         <Button type="submit" disabled={submitting}>
-          Save
+          {submitting && <Loader2 className="animate-spin" />}
+          {submitting ? "Submitting..." : "Save"}
         </Button>
       </form>
     </Form>
