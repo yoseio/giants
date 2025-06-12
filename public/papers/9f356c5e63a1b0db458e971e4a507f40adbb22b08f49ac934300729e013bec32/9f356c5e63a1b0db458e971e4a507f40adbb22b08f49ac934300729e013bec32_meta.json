@@ -1,0 +1,1879 @@
+{
+  "table_of_contents": [
+    {
+      "title": "(State of) The Art of War:\nOffensive Techniques in Binary Analysis",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          111.62618458271027,
+          75.75933837890625
+        ],
+        [
+          499.418984413147,
+          75.75933837890625
+        ],
+        [
+          498.8437805175781,
+          125.5137939453125
+        ],
+        [
+          110.43087208271027,
+          125.5137939453125
+        ]
+      ]
+    },
+    {
+      "title": "I. INTRODUCTION",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          140.8314903974533,
+          413.83111572265625
+        ],
+        [
+          217.3945609331131,
+          413.11811113357544
+        ],
+        [
+          216.7886505126953,
+          423.3990783691406
+        ],
+        [
+          139.6361778974533,
+          423.3990783691406
+        ]
+      ]
+    },
+    {
+      "title": "II. AUTOMATED BINARY ANALYSIS",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          353.4261975288391,
+          75.295654296875
+        ],
+        [
+          505.42852306365967,
+          74.93995213508606
+        ],
+        [
+          505.42852306365967,
+          84.86370849609375
+        ],
+        [
+          353.4261975288391,
+          85.43769979476929
+        ]
+      ]
+    },
+    {
+      "title": "A. Trade-offs",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          311.1660568714142,
+          215.03045654296875
+        ],
+        [
+          365.0300452709198,
+          213.97383999824524
+        ],
+        [
+          363.8347327709198,
+          224.59857177734375
+        ],
+        [
+          309.9707443714142,
+          224.77529311180115
+        ]
+      ]
+    },
+    {
+      "title": "B. The DARPA Cyber Grand Challenge",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          311.7137756347656,
+          462.3700866699219
+        ],
+        [
+          469.6415934562683,
+          462.1913137435913
+        ],
+        [
+          469.0417175292969,
+          471.93817138671875
+        ],
+        [
+          311.43449878692627,
+          472.7579126358032
+        ]
+      ]
+    },
+    {
+      "title": "C. Comparative Analysis of CGC Binaries",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          58.65239721536636,
+          243.946044921875
+        ],
+        [
+          229.0561351776123,
+          243.946044921875
+        ],
+        [
+          229.0561351776123,
+          253.51416015625
+        ],
+        [
+          58.65239721536636,
+          253.51416015625
+        ]
+      ]
+    },
+    {
+      "title": "III. BACKGROUND: STATIC VULNERABILITY DISCOVERY",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          60.55207335948944,
+          404.3600549697876
+        ],
+        [
+          298.61956179142,
+          404.3600549697876
+        ],
+        [
+          297.42424929142,
+          413.999267578125
+        ],
+        [
+          59.35676085948944,
+          413.999267578125
+        ]
+      ]
+    },
+    {
+      "title": "A. Recovering Control Flow",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          58.025321424007416,
+          680.2765426635742
+        ],
+        [
+          172.33361792564392,
+          679.1978888511658
+        ],
+        [
+          172.33361792564392,
+          689.8446273803711
+        ],
+        [
+          58.025321424007416,
+          690.3001914024353
+        ]
+      ]
+    },
+    {
+      "title": "B. Vulnerability Detection with Flow Modeling",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          58.74827975034714,
+          394.5299072265625
+        ],
+        [
+          246.60991644859314,
+          394.38521790504456
+        ],
+        [
+          245.41460394859314,
+          404.0979919433594
+        ],
+        [
+          57.55296725034714,
+          405.1282525062561
+        ]
+      ]
+    },
+    {
+      "title": "C. Vulnerability Detection with Data Modeling",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          58.94239044189453,
+          594.6272430419922
+        ],
+        [
+          245.91656005382538,
+          593.6007714271545
+        ],
+        [
+          245.0415802001953,
+          604.1953125
+        ],
+        [
+          57.931946754455566,
+          604.37224817276
+        ]
+      ]
+    },
+    {
+      "title": "IV.",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          424.5402145385742,
+          219.883056640625
+        ],
+        [
+          439.70048904418945,
+          218.4953384399414
+        ],
+        [
+          438.50517654418945,
+          229.45111083984375
+        ],
+        [
+          423.3449020385742,
+          229.45111083984375
+        ]
+      ]
+    },
+    {
+      "title": "BACKGROUND: DYNAMIC VULNERABILITY DISCOVERY",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          318.49334716796875,
+          231.3648681640625
+        ],
+        [
+          545.8168294429779,
+          230.74908757209778
+        ],
+        [
+          545.7149658203125,
+          240.93310546875
+        ],
+        [
+          317.8310329914093,
+          241.41888070106506
+        ]
+      ]
+    },
+    {
+      "title": "A. Dynamic Concrete Execution",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          311.54058837890625,
+          367.64215087890625
+        ],
+        [
+          440.82809829711914,
+          367.4204363822937
+        ],
+        [
+          439.63278579711914,
+          377.2102355957031
+        ],
+        [
+          310.67152404785156,
+          377.969521522522
+        ]
+      ]
+    },
+    {
+      "title": "V. BACKGROUND: EXPLOITATION",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          362.5790710449219,
+          458.9595031738281
+        ],
+        [
+          502.1606740951538,
+          458.9595031738281
+        ],
+        [
+          502.1606740951538,
+          468.5338439941406
+        ],
+        [
+          362.5790710449219,
+          468.5338439941406
+        ]
+      ]
+    },
+    {
+      "title": "A. Crash Reproduction",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          310.7740638256073,
+          599.2913055419922
+        ],
+        [
+          402.7690734863281,
+          599.2913055419922
+        ],
+        [
+          402.7690734863281,
+          608.859375
+        ],
+        [
+          310.7740638256073,
+          608.859375
+        ]
+      ]
+    },
+    {
+      "title": "B. Exploit Generation",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          58.233971267938614,
+          611.9990692138672
+        ],
+        [
+          147.05685138702393,
+          611.9990692138672
+        ],
+        [
+          147.05685138702393,
+          621.567138671875
+        ],
+        [
+          58.233971267938614,
+          621.567138671875
+        ]
+      ]
+    },
+    {
+      "title": "C. Exploit Hardening",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          311.1289222240448,
+          151.5084228515625
+        ],
+        [
+          397.1950378417969,
+          151.5084228515625
+        ],
+        [
+          397.1950378417969,
+          161.41993260383606
+        ],
+        [
+          311.1289222240448,
+          161.41993260383606
+        ]
+      ]
+    },
+    {
+      "title": "VI. ANALYSIS ENGINE",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          384.55657958984375,
+          368.6207892894745
+        ],
+        [
+          480.7293133735657,
+          368.6207892894745
+        ],
+        [
+          480.7293133735657,
+          378.493408203125
+        ],
+        [
+          384.55657958984375,
+          378.493408203125
+        ]
+      ]
+    },
+    {
+      "title": "A. Design Goals",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          310.6374535560608,
+          540.5428924560547
+        ],
+        [
+          377.87640380859375,
+          540.5428924560547
+        ],
+        [
+          377.87640380859375,
+          550.1109619140625
+        ],
+        [
+          310.6374535560608,
+          550.1109619140625
+        ]
+      ]
+    },
+    {
+      "title": "B. Submodule: Intermediate Representation",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          58.643952548503876,
+          542.9720764160156
+        ],
+        [
+          232.78966283798218,
+          542.9720764160156
+        ],
+        [
+          232.78966283798218,
+          552.5401458740234
+        ],
+        [
+          58.643952548503876,
+          552.5401458740234
+        ]
+      ]
+    },
+    {
+      "title": "C. Submodule: Binary Loading",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          310.46020674705505,
+          128.3077392578125
+        ],
+        [
+          436.58172583580017,
+          127.90060579776764
+        ],
+        [
+          436.58172583580017,
+          137.8758544921875
+        ],
+        [
+          310.46020674705505,
+          138.64017069339752
+        ]
+      ]
+    },
+    {
+      "title": "D. Submodule: Program State Representation/Modification",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          311.7750244140625,
+          368.4272766113281
+        ],
+        [
+          544.9942860603333,
+          367.6646611690521
+        ],
+        [
+          543.7989735603333,
+          377.995361328125
+        ],
+        [
+          310.7900776863098,
+          378.0682075023651
+        ]
+      ]
+    },
+    {
+      "title": "E. Submodule: Data Model",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          58.2326534986496,
+          470.3804931640625
+        ],
+        [
+          168.30242943763733,
+          470.3804931640625
+        ],
+        [
+          168.30242943763733,
+          479.9485778808594
+        ],
+        [
+          58.2326534986496,
+          479.9485778808594
+        ]
+      ]
+    },
+    {
+      "title": "F. Submodule: Full-Program Analysis",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          311.1573021411896,
+          504.20255613327026
+        ],
+        [
+          462.6277778148651,
+          504.20255613327026
+        ],
+        [
+          462.6277778148651,
+          513.8306884765625
+        ],
+        [
+          311.1573021411896,
+          513.8306884765625
+        ]
+      ]
+    },
+    {
+      "title": "G. Open-Source Release",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          58.30615675449371,
+          273.1192910671234
+        ],
+        [
+          156.20684814453125,
+          273.1192910671234
+        ],
+        [
+          156.20684814453125,
+          283.17962646484375
+        ],
+        [
+          58.30615675449371,
+          283.17962646484375
+        ]
+      ]
+    },
+    {
+      "title": "VII. IMPLEMENTATION: CFG RECOVERY",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          92.49844872951508,
+          681.2381896972656
+        ],
+        [
+          265.21326220035553,
+          681.2381896972656
+        ],
+        [
+          265.21326220035553,
+          690.8078994750977
+        ],
+        [
+          92.49844872951508,
+          690.8078994750977
+        ]
+      ]
+    },
+    {
+      "title": "A. Assumptions",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          311.48876953125,
+          349.78948974609375
+        ],
+        [
+          374.2534453868866,
+          349.493364572525
+        ],
+        [
+          373.0581328868866,
+          359.3575744628906
+        ],
+        [
+          311.48876953125,
+          359.63448786735535
+        ]
+      ]
+    },
+    {
+      "title": "B. Iterative CFG Generation",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          58.51261791586876,
+          290.7367248535156
+        ],
+        [
+          174.82355439662933,
+          289.2543189525604
+        ],
+        [
+          173.80722045898438,
+          300.3048095703125
+        ],
+        [
+          57.31730541586876,
+          300.34977650642395
+        ]
+      ]
+    },
+    {
+      "title": "C. Forced Execution",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          58.42853602766991,
+          530.8185424804688
+        ],
+        [
+          141.56021225452423,
+          529.3168044090271
+        ],
+        [
+          141.56021225452423,
+          540.3866271972656
+        ],
+        [
+          58.42853602766991,
+          540.726140499115
+        ]
+      ]
+    },
+    {
+      "title": "D. Symbolic Execution",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          310.11964774131775,
+          128.4627685546875
+        ],
+        [
+          404.1611359119415,
+          127.3278329372406
+        ],
+        [
+          402.9658234119415,
+          138.0308837890625
+        ],
+        [
+          308.92433524131775,
+          138.76275515556335
+        ]
+      ]
+    },
+    {
+      "title": "E. Backward Slicing",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          311.8363037109375,
+          461.5034484863281
+        ],
+        [
+          394.17392206192017,
+          460.43531227111816
+        ],
+        [
+          393.04058837890625,
+          471.071533203125
+        ],
+        [
+          311.20548963546753,
+          472.0587787628174
+        ]
+      ]
+    },
+    {
+      "title": "F. CFGFast",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          58.18875217437744,
+          106.91718363761902
+        ],
+        [
+          109.94502103328705,
+          106.91718363761902
+        ],
+        [
+          109.94502103328705,
+          116.7894287109375
+        ],
+        [
+          58.18875217437744,
+          116.7894287109375
+        ]
+      ]
+    },
+    {
+      "title": "G. Using the CFG Recovery",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          58.09490329027176,
+          423.7622709274292
+        ],
+        [
+          174.4956715106964,
+          423.7622709274292
+        ],
+        [
+          174.4956715106964,
+          433.7694091796875
+        ],
+        [
+          58.09490329027176,
+          433.7694091796875
+        ]
+      ]
+    },
+    {
+      "title": "VIII. IMPLEMENTATION: VALUE SET ANALYSIS",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          81.36570739746094,
+          505.8600368499756
+        ],
+        [
+          279.8397717475891,
+          505.8600368499756
+        ],
+        [
+          278.6444592475891,
+          515.771240234375
+        ],
+        [
+          80.44195407629013,
+          515.771240234375
+        ]
+      ]
+    },
+    {
+      "title": "A. Using VSA",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          58.514861315488815,
+          230.39456391334534
+        ],
+        [
+          115.78781855106354,
+          230.39456391334534
+        ],
+        [
+          115.78781855106354,
+          239.96356201171875
+        ],
+        [
+          58.514861315488815,
+          239.96356201171875
+        ]
+      ]
+    },
+    {
+      "title": "IX. IMPLEMENTATION: DYNAMIC SYMBOLIC EXECUTION",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          59.973139464855194,
+          398.4249701499939
+        ],
+        [
+          301.2262279987335,
+          398.4249701499939
+        ],
+        [
+          300.0309154987335,
+          408.063720703125
+        ],
+        [
+          58.777826964855194,
+          408.063720703125
+        ]
+      ]
+    },
+    {
+      "title": "X. IMPLEMENTATION:",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          130.65285801887512,
+          668.7930207252502
+        ],
+        [
+          232.726628780365,
+          668.7930207252502
+        ],
+        [
+          232.726628780365,
+          679.1806793212891
+        ],
+        [
+          130.65285801887512,
+          679.1806793212891
+        ]
+      ]
+    },
+    {
+      "title": "UNDER-CONSTRAINED SYMBOLIC EXECUTION",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          83.83084106445312,
+          680.8172264099121
+        ],
+        [
+          276.6590323448181,
+          680.8172264099121
+        ],
+        [
+          276.6590323448181,
+          690.717830657959
+        ],
+        [
+          83.83084106445312,
+          690.717830657959
+        ]
+      ]
+    },
+    {
+      "title": "XI. IMPLEMENTATION: SYMBOLIC-ASSISTED FUZZING",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          65.85033577680588,
+          210.3130645751953
+        ],
+        [
+          294.1806399822235,
+          210.3130645751953
+        ],
+        [
+          292.9853274822235,
+          220.19989013671875
+        ],
+        [
+          64.65502327680588,
+          220.19989013671875
+        ]
+      ]
+    },
+    {
+      "title": "XII. IMPLEMENTATION: CRASH REPRODUCTION",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          79.40140879154205,
+          611.4999694824219
+        ],
+        [
+          281.18524610996246,
+          610.9716281890869
+        ],
+        [
+          281.18524610996246,
+          621.0693664550781
+        ],
+        [
+          79.40140879154205,
+          621.4150171279907
+        ]
+      ]
+    },
+    {
+      "title": "XIII. IMPLEMENTATION: EXPLOIT GENERATION",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          332.98858642578125,
+          480.23699951171875
+        ],
+        [
+          532.3095939159393,
+          479.75246143341064
+        ],
+        [
+          531.569091796875,
+          489.8060607910156
+        ],
+        [
+          332.94570994377136,
+          490.1298551559448
+        ]
+      ]
+    },
+    {
+      "title": "XIV. IMPLEMENTATION: EXPLOIT HARDENING",
+      "heading_level": null,
+      "page_id": 14,
+      "polygon": [
+        [
+          332.2606158256531,
+          195.7998046875
+        ],
+        [
+          529.6336741447449,
+          195.3258011341095
+        ],
+        [
+          529.0324096679688,
+          205.37286376953125
+        ],
+        [
+          331.0653033256531,
+          205.8617627620697
+        ]
+      ]
+    },
+    {
+      "title": "XV. COMPARATIVE EVALUATION",
+      "heading_level": null,
+      "page_id": 15,
+      "polygon": [
+        [
+          110.31351310014725,
+          237.16815185546875
+        ],
+        [
+          248.0890655517578,
+          236.80894017219543
+        ],
+        [
+          248.0890655517578,
+          246.73663330078125
+        ],
+        [
+          109.11820060014725,
+          246.9151303768158
+        ]
+      ]
+    },
+    {
+      "title": "A. CFG recovery",
+      "heading_level": null,
+      "page_id": 15,
+      "polygon": [
+        [
+          58.5796599984169,
+          510.94586181640625
+        ],
+        [
+          128.39283353090286,
+          510.3853826522827
+        ],
+        [
+          127.67108917236328,
+          520.5139465332031
+        ],
+        [
+          57.3843474984169,
+          521.5587787628174
+        ]
+      ]
+    },
+    {
+      "title": "B. Evaluation of Vulnerability Analysis Techniques",
+      "heading_level": null,
+      "page_id": 15,
+      "polygon": [
+        [
+          311.7423095703125,
+          614.2602233886719
+        ],
+        [
+          513.8035898208618,
+          612.8119411468506
+        ],
+        [
+          512.6082773208618,
+          623.8282928466797
+        ],
+        [
+          310.60695791244507,
+          624.1482954025269
+        ]
+      ]
+    },
+    {
+      "title": "C. Exploitation Evaluation.",
+      "heading_level": null,
+      "page_id": 17,
+      "polygon": [
+        [
+          310.58820819854736,
+          443.7397766113281
+        ],
+        [
+          420.14129638671875,
+          442.6538028717041
+        ],
+        [
+          420.14129638671875,
+          453.307861328125
+        ],
+        [
+          310.58820819854736,
+          453.307861328125
+        ]
+      ]
+    },
+    {
+      "title": "XVI. CONCLUSIONS",
+      "heading_level": null,
+      "page_id": 18,
+      "polygon": [
+        [
+          134.58799982070923,
+          622.935302734375
+        ],
+        [
+          224.43980240821838,
+          622.935302734375
+        ],
+        [
+          224.43980240821838,
+          632.5033874511719
+        ],
+        [
+          134.58799982070923,
+          632.5033874511719
+        ]
+      ]
+    },
+    {
+      "title": "REFERENCES",
+      "heading_level": null,
+      "page_id": 18,
+      "polygon": [
+        [
+          404.936767578125,
+          236.6021728515625
+        ],
+        [
+          458.68012404441833,
+          236.5020010471344
+        ],
+        [
+          458.5331726074219,
+          246.17022705078125
+        ],
+        [
+          404.1970303058624,
+          246.17022705078125
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          215
+        ],
+        [
+          "Line",
+          101
+        ],
+        [
+          "Text",
+          12
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "Picture",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          274
+        ],
+        [
+          "Line",
+          111
+        ],
+        [
+          "Text",
+          11
+        ],
+        [
+          "ListItem",
+          3
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          418
+        ],
+        [
+          "Line",
+          119
+        ],
+        [
+          "Text",
+          17
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "Code",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          344
+        ],
+        [
+          "Line",
+          110
+        ],
+        [
+          "Text",
+          12
+        ],
+        [
+          "ListItem",
+          4
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          279
+        ],
+        [
+          "Line",
+          109
+        ],
+        [
+          "Text",
+          16
+        ],
+        [
+          "SectionHeader",
+          5
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "ListItem",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          290
+        ],
+        [
+          "Line",
+          110
+        ],
+        [
+          "Text",
+          13
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 6,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          258
+        ],
+        [
+          "Line",
+          110
+        ],
+        [
+          "Text",
+          13
+        ],
+        [
+          "ListItem",
+          4
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 7,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          356
+        ],
+        [
+          "Line",
+          111
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "ListItem",
+          8
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 8,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          387
+        ],
+        [
+          "Line",
+          110
+        ],
+        [
+          "Text",
+          10
+        ],
+        [
+          "ListItem",
+          8
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 9,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          339
+        ],
+        [
+          "Line",
+          111
+        ],
+        [
+          "Text",
+          15
+        ],
+        [
+          "ListItem",
+          5
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 10,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          395
+        ],
+        [
+          "Line",
+          110
+        ],
+        [
+          "Text",
+          10
+        ],
+        [
+          "ListItem",
+          5
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "TextInlineMath",
+          3
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 11,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          336
+        ],
+        [
+          "Line",
+          109
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "ListItem",
+          6
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 12,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          328
+        ],
+        [
+          "Line",
+          112
+        ],
+        [
+          "Text",
+          11
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "ListItem",
+          3
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 13,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          343
+        ],
+        [
+          "Line",
+          110
+        ],
+        [
+          "Text",
+          12
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageFooter",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 14,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          308
+        ],
+        [
+          "Line",
+          113
+        ],
+        [
+          "Text",
+          12
+        ],
+        [
+          "ListItem",
+          5
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 15,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          366
+        ],
+        [
+          "Line",
+          115
+        ],
+        [
+          "TableCell",
+          50
+        ],
+        [
+          "Text",
+          13
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Table",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 16,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          250
+        ],
+        [
+          "TableCell",
+          168
+        ],
+        [
+          "Line",
+          90
+        ],
+        [
+          "Text",
+          12
+        ],
+        [
+          "Table",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 17,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          278
+        ],
+        [
+          "Line",
+          103
+        ],
+        [
+          "Text",
+          14
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 18,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          336
+        ],
+        [
+          "Line",
+          123
+        ],
+        [
+          "ListItem",
+          18
+        ],
+        [
+          "Text",
+          11
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 19,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          426
+        ],
+        [
+          "Line",
+          147
+        ],
+        [
+          "ListItem",
+          44
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "Text",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/9f356c5e63a1b0db458e971e4a507f40adbb22b08f49ac934300729e013bec32"
+}
