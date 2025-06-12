@@ -3,6 +3,16 @@ import ReactMarkdown, { defaultUrlTransform } from "react-markdown";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableFooter,
+  TableRow,
+  TableHead,
+  TableCell,
+  TableCaption,
+} from "@/components/ui/table";
 import { getPaper, listPaperIds, getPaperMarkdown } from "@/lib/papers";
 import { notFound } from "next/navigation";
 
@@ -44,6 +54,16 @@ export default async function PaperDetailPage({
               <ReactMarkdown
                 remarkPlugins={[remarkGfm, remarkMath]}
                 rehypePlugins={[rehypeKatex]}
+                components={{
+                  table: (props) => <Table {...props} />,
+                  thead: (props) => <TableHeader {...props} />,
+                  tbody: (props) => <TableBody {...props} />,
+                  tfoot: (props) => <TableFooter {...props} />,
+                  tr: (props) => <TableRow {...props} />,
+                  th: (props) => <TableHead {...props} />,
+                  td: (props) => <TableCell {...props} />,
+                  caption: (props) => <TableCaption {...props} />,
+                }}
                 urlTransform={(url, key) => {
                   const safe = defaultUrlTransform(url);
                   if (
