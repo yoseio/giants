@@ -3,7 +3,7 @@ name: Run Marker on changes
 on:
   pull_request:
     paths:
-      - "papers/**"
+      - "public/papers/**"
     types: [opened, synchronize]
 
 permissions:
@@ -39,7 +39,7 @@ jobs:
       - name: Run marker script for changed files
         shell: bash
         run: |
-          changed_files=$(git diff --name-only "${{ github.event.pull_request.base.sha }}" "${{ github.event.pull_request.head.sha }}" -- 'papers/*.pdf')
+          changed_files=$(git diff --name-only "${{ github.event.pull_request.base.sha }}" "${{ github.event.pull_request.head.sha }}" -- 'public/papers/*.pdf')
           echo "$changed_files" | while IFS= read -r file; do
             [ -z "$file" ] && continue
             ./scripts/run_marker.sh "$file"

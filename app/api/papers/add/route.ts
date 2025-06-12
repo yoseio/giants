@@ -24,8 +24,8 @@ export async function POST(req: NextRequest) {
 
   const hash = createHash("sha256").update(doi).digest("hex");
   const branch = `add-paper-${hash}`;
-  const pdfPath = `papers/${hash}.pdf`;
-  const jsonPath = `papers/${hash}.json`;
+  const pdfPath = `public/papers/${hash}.pdf`;
+  const jsonPath = `public/papers/${hash}.json`;
 
   const octokit = new Octokit({
     auth: token,
