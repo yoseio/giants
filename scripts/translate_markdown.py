@@ -19,6 +19,9 @@ SYSTEM_PROMPT = (
 )
 
 async def translate_paragraph(client: openai.AsyncOpenAI, text: str) -> str:
+    if not text.strip():
+        return text
+
     for attempt in range(MAX_RETRIES + 1):
         try:
             response = await client.chat.completions.create(
