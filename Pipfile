@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 marker-pdf = "*"
 openai = "*"
+markdown-it-py = {extras = ["plugins"], version = "*"}
 
 [dev-packages]
 
