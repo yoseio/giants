@@ -8,6 +8,8 @@ from markdown_it import MarkdownIt
 from tqdm.asyncio import tqdm
 
 MAX_CONCURRENT_REQUESTS = 5
+MAX_RETRIES = 3
+RETRY_DELAY = 3  # seconds
 
 
 SYSTEM_PROMPT = (
@@ -17,11 +19,17 @@ SYSTEM_PROMPT = (
 )
 
 async def translate_paragraph(client: openai.AsyncOpenAI, text: str) -> str:
-    response = await client.chat.completions.create(
-        model="gpt-4.1",
-        messages=[{"role": "system", "content": SYSTEM_PROMPT}, {"role": "user", "content": text}],
-    )
-    return response.choices[0].message.content.strip()
+    for attempt in range(MAX_RETRIES + 1):
+        try:
+            response = await client.chat.completions.create(
+                model="gpt-4.1",
+                messages=[{"role": "system", "content": SYSTEM_PROMPT}, {"role": "user", "content": text}],
+            )
+            return response.choices[0].message.content.strip()
+        except openai.RateLimitError:
+            if attempt >= MAX_RETRIES:
+                raise
+            await asyncio.sleep(RETRY_DELAY)
 
 
 async def translate_file(path: str) -> None:
