@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { getPaper, listPaperIds } from "@/lib/papers";
+import ReactMarkdown from "react-markdown";
+import { getPaper, listPaperIds, getPaperMarkdown } from "@/lib/papers";
 import { notFound } from "next/navigation";
 
 export default async function PaperDetailPage({
@@ -9,6 +10,7 @@ export default async function PaperDetailPage({
 }) {
   const { id } = await params;
   const paper = await getPaper(id);
+  const markdown = await getPaperMarkdown(id, "ja");
   if (!paper) {
     return notFound();
   }
@@ -21,7 +23,11 @@ export default async function PaperDetailPage({
         </CardHeader>
         <CardContent className="space-y-2">
           <p className="text-sm text-muted-foreground">{authors}</p>
-          <p>{paper.abstract || "No abstract available."}</p>
+          {markdown ? (
+            <ReactMarkdown>{markdown}</ReactMarkdown>
+          ) : (
+            <p>{paper.abstract || "No abstract available."}</p>
+          )}
         </CardContent>
       </Card>
     </main>
