@@ -4,7 +4,7 @@ import { AddPaperForm } from "@/components/add-paper-form";
 export default function AddPaperPage() {
   return (
     <main className="container mx-auto p-4">
-      <Card className="w-full max-w-2xl mx-auto">
+      <Card className="w-full max-w-3xl mx-auto">
         <CardHeader>
           <CardTitle>Add Paper</CardTitle>
         </CardHeader>
