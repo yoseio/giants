@@ -10,11 +10,20 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { listPaperIds, getPaper } from "@/lib/papers";
+import { listPaperIds, getPaper, PaperWithId } from "@/lib/papers";
 
 export default async function Home() {
   const ids = await listPaperIds();
-  const papers = await Promise.all(ids.map((id) => getPaper(id)));
+  const papers: PaperWithId[] = (
+    await Promise.all(
+      ids.map(async (id) => {
+        const paper = await getPaper(id);
+        return paper ? { id, ...paper } : null;
+      }),
+    )
+  ).filter(Boolean) as PaperWithId[];
+
+  papers.sort((a, b) => (b.year ?? 0) - (a.year ?? 0));
 
   return (
     <main className="container mx-auto p-4 space-y-6">
@@ -44,18 +53,19 @@ export default async function Home() {
               <TableHeader>
                 <TableRow>
                   <TableHead>Title</TableHead>
+                  <TableHead>Year</TableHead>
                   <TableHead>Authors</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {papers.map((paper, i) => {
-                  if (!paper) return null;
+                {papers.map((paper) => {
                   const authors = paper.authors.map((a) => a.name).join(", ");
                   return (
-                    <TableRow key={ids[i]}>
+                    <TableRow key={paper.id}>
                       <TableCell>
-                        <Link href={`/papers/${ids[i]}`}>{paper.title}</Link>
+                        <Link href={`/papers/${paper.id}`}>{paper.title}</Link>
                       </TableCell>
+                      <TableCell>{paper.year ?? ""}</TableCell>
                       <TableCell>{authors}</TableCell>
                     </TableRow>
                   );
