@@ -34,8 +34,10 @@ jobs:
       - name: Cache Marker models
         uses: actions/cache@v3
         with:
-          path: /home/runner/.cache/datalab/models/
+          path: /home/runner/.cache/datalab/models
           key: datalab-models-${{ runner.os }}
+          restore-keys: |
+            datalab-models-${{ runner.os }}-
       - name: Run marker script for changed files
         shell: bash
         run: |
