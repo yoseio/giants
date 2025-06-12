@@ -37,6 +37,18 @@ export async function getPaper(id: string): Promise<Paper | null> {
   }
 }
 
+export async function getPaperMarkdown(
+  id: string,
+  lang: "ja" | "en" = "ja",
+): Promise<string | null> {
+  try {
+    const filePath = path.join(papersDir, id, `${id}.${lang}.md`);
+    return await fs.readFile(filePath, "utf8");
+  } catch {
+    return null;
+  }
+}
+
 export type PaperWithId = Paper & { id: string };
 
 export async function searchPapers(query: string): Promise<PaperWithId[]> {
