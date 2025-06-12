@@ -1,5 +1,8 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
 import { getPaper, listPaperIds, getPaperMarkdown } from "@/lib/papers";
 import { notFound } from "next/navigation";
 
@@ -18,13 +21,33 @@ export default async function PaperDetailPage({
   return (
     <main className="container mx-auto p-4">
       <Card className="w-full max-w-2xl mx-auto">
-        <CardHeader>
+        <CardHeader className="space-y-1">
           <CardTitle>{paper.title}</CardTitle>
+          <p className="text-sm text-muted-foreground">
+            {authors}
+            {paper.year ? ` (${paper.year})` : null}
+          </p>
+          {paper.openAccessPdf?.url ? (
+            <a
+              href={paper.openAccessPdf.url}
+              className="text-sm underline text-blue-600"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View PDF
+            </a>
+          ) : null}
         </CardHeader>
-        <CardContent className="space-y-2">
-          <p className="text-sm text-muted-foreground">{authors}</p>
+        <CardContent className="space-y-4">
           {markdown ? (
-            <ReactMarkdown>{markdown}</ReactMarkdown>
+            <div className="markdown">
+              <ReactMarkdown
+                remarkPlugins={[remarkGfm, remarkMath]}
+                rehypePlugins={[rehypeKatex]}
+              >
+                {markdown}
+              </ReactMarkdown>
+            </div>
           ) : (
             <p>{paper.abstract || "No abstract available."}</p>
           )}
