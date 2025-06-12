@@ -1,7 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
+import AddPaperForm from "./AddPaperForm";
 
 export default function AddPaperPage() {
   return (
@@ -11,24 +9,7 @@ export default function AddPaperPage() {
           <CardTitle>Add Paper</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
-          <form
-            className="space-y-4"
-            action="/api/papers/add"
-            method="post"
-            encType="multipart/form-data"
-          >
-            <Input placeholder="DOI" name="doi" required />
-            <Input placeholder="Title" name="title" required />
-            <Input placeholder="Year" name="year" type="number" />
-            <Input
-              placeholder="Authors (comma separated)"
-              name="authors"
-              required
-            />
-            <Textarea placeholder="Abstract" name="abstract" />
-            <Input type="file" accept="application/pdf" name="pdf" required />
-            <Button type="submit">Save</Button>
-          </form>
+          <AddPaperForm />
           <p className="text-sm text-muted-foreground">
             Submitting the form creates a pull request with the uploaded PDF in
             the
