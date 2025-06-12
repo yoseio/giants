@@ -11,8 +11,9 @@ MAX_CONCURRENT_REQUESTS = 5
 
 
 SYSTEM_PROMPT = (
-    "Translate the following Markdown paragraph to Japanese. "
-    "Only translate the prose and leave any headings, images, formulas, or code unchanged."
+    "Translate the following Markdown paragraph into natural Japanese. "
+    "Do not translate personal names, organization names, citations, URLs, code, or formulas. "
+    "Leave headings, images, and formatting exactly as in the input; only translate the prose."
 )
 
 async def translate_paragraph(client: openai.AsyncOpenAI, text: str) -> str:
