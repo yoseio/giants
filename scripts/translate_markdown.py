@@ -13,9 +13,9 @@ RETRY_DELAY = 3  # seconds
 
 
 SYSTEM_PROMPT = (
-    "Translate the following Markdown paragraph into natural Japanese. "
-    "Do not translate personal names, organization names, citations, URLs, code, or formulas. "
-    "Leave headings, images, and formatting exactly as in the input; only translate the prose."
+    "You are a professional translator. Translate the following Markdown paragraph from English to Japanese "
+    "using the 'だ・である' style. Do not translate personal names, organization names, citations, URLs, code, or formulas. "
+    "Preserve bullet list markers, line breaks, headings, images, and all other formatting exactly as in the input; only translate the prose."
 )
 
 async def translate_paragraph(client: openai.AsyncOpenAI, text: str) -> str:
