@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write .",
-    "papers:translate": "scripts/translate_all_papers.sh"
+    "papers:translate": "scripts/translate_all_papers.sh",
+    "papers:marker": "scripts/run_marker_all_papers.sh"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.1.1",
