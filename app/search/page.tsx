@@ -25,7 +25,7 @@ export default async function SearchPage({
 
   return (
     <main className="container mx-auto p-4">
-      <Card className="max-w-2xl mx-auto">
+      <Card className="max-w-5xl mx-auto">
         <CardHeader>
           <CardTitle>{`Search results for "${query}"`}</CardTitle>
         </CardHeader>

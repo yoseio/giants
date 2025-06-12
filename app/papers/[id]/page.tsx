@@ -20,7 +20,7 @@ export default async function PaperDetailPage({
   const authors = paper.authors.map((a) => a.name).join(", ");
   return (
     <main className="container mx-auto p-4">
-      <Card className="w-full max-w-2xl mx-auto">
+      <Card className="w-full max-w-5xl mx-auto">
         <CardHeader className="space-y-1">
           <CardTitle>{paper.title}</CardTitle>
           <p className="text-sm text-muted-foreground">

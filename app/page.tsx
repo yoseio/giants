@@ -18,7 +18,7 @@ export default async function Home() {
 
   return (
     <main className="container mx-auto p-4 space-y-6">
-      <Card className="max-w-2xl mx-auto">
+      <Card className="max-w-5xl mx-auto">
         <CardHeader>
           <CardTitle>Standing on the Shoulders of Giants</CardTitle>
         </CardHeader>
@@ -35,7 +35,7 @@ export default async function Home() {
         </CardContent>
       </Card>
       {papers.length > 0 && (
-        <Card className="max-w-2xl mx-auto">
+        <Card className="max-w-5xl mx-auto">
           <CardHeader>
             <CardTitle>Available Papers</CardTitle>
           </CardHeader>
