@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import ReactMarkdown from "react-markdown";
+import ReactMarkdown, { defaultUrlTransform } from "react-markdown";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
@@ -44,6 +44,17 @@ export default async function PaperDetailPage({
               <ReactMarkdown
                 remarkPlugins={[remarkGfm, remarkMath]}
                 rehypePlugins={[rehypeKatex]}
+                urlTransform={(url, key) => {
+                  const safe = defaultUrlTransform(url);
+                  if (
+                    key === "src" &&
+                    !/^(?:[a-z]+:)?\/\//i.test(safe) &&
+                    !safe.startsWith("/")
+                  ) {
+                    return `/papers/${id}/${safe}`;
+                  }
+                  return safe;
+                }}
               >
                 {markdown}
               </ReactMarkdown>
