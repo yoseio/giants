@@ -7,6 +7,8 @@ import openai
 from markdown_it import MarkdownIt
 from tqdm.asyncio import tqdm
 
+MAX_CONCURRENT_REQUESTS = 5
+
 
 SYSTEM_PROMPT = (
     "Translate the following Markdown paragraph to Japanese. "
@@ -40,15 +42,18 @@ async def translate_file(path: str) -> None:
             paragraphs.append("".join(lines[start:end]).rstrip("\n"))
             positions.append((start, end))
 
-    tasks = {
-        asyncio.create_task(translate_paragraph(client, para)): idx
-        for idx, para in enumerate(paragraphs)
-    }
+    semaphore = asyncio.Semaphore(MAX_CONCURRENT_REQUESTS)
+
+    async def sem_translate(idx: int, para: str) -> tuple[int, str]:
+        async with semaphore:
+            result = await translate_paragraph(client, para)
+            return idx, result
+
+    tasks = [asyncio.create_task(sem_translate(i, p)) for i, p in enumerate(paragraphs)]
 
     results: list[str | None] = [None] * len(paragraphs)
-    for task in tqdm(asyncio.as_completed(tasks), total=len(tasks)):
-        res = await task
-        idx = tasks[task]
+    for coro in tqdm(asyncio.as_completed(tasks), total=len(tasks)):
+        idx, res = await coro
         results[idx] = res
 
     output_lines = []
