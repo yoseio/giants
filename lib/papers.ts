@@ -14,7 +14,7 @@ export type Paper = {
   openAccessPdf?: { url: string };
 };
 
-const papersDir = path.join(process.cwd(), "papers");
+const papersDir = path.join(process.cwd(), "public", "papers");
 
 export async function listPaperIds(): Promise<string[]> {
   try {
@@ -29,7 +29,7 @@ export async function listPaperIds(): Promise<string[]> {
 
 export async function getPaper(id: string): Promise<Paper | null> {
   try {
-    const filePath = path.join(process.cwd(), "papers", `${id}.json`);
+    const filePath = path.join(papersDir, `${id}.json`);
     const data = await fs.readFile(filePath, "utf8");
     return JSON.parse(data) as Paper;
   } catch {
