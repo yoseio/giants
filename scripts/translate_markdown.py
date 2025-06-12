@@ -7,9 +7,10 @@ def translate_file(path: str) -> None:
     with open(path, 'r', encoding='utf-8') as f:
         content = f.read()
 
-    client = openai.OpenAI()
+    api_key = os.environ["OPENAI_API_KEY"]
+    client = openai.OpenAI(api_key=api_key)
     response = client.chat.completions.create(
-        model="gpt-3.5-turbo",
+        model="gpt-4.1",
         messages=[
             {"role": "system", "content": "Translate the following Markdown to Japanese."},
             {"role": "user", "content": content},
