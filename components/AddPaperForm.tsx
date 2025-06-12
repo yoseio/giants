@@ -1,8 +1,10 @@
 "use client";
 
+import { useState } from "react";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+
 import {
   Form,
   FormField,
@@ -14,7 +16,6 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
 
 const schema = z.object({
   doi: z.string().min(1, "Required"),
@@ -43,7 +44,7 @@ type FormValues = {
   pdf: FileList;
 };
 
-export default function AddPaperForm() {
+export function AddPaperForm() {
   const [submitting, setSubmitting] = useState(false);
   const form = useForm<FormValues>({
     resolver: zodResolver(schema),
