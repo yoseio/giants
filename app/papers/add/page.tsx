@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { AddPaperForm } from "@/components/AddPaperForm";
+import { AddPaperForm } from "@/components/add-paper-form";
 
 export default function AddPaperPage() {
   return (
