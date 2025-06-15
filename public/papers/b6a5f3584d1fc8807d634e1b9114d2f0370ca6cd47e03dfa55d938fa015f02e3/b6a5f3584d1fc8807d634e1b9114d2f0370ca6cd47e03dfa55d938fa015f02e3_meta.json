@@ -1,0 +1,432 @@
+{
+  "table_of_contents": [
+    {
+      "title": "COMEX: A Tool for Generating Customized Source\nCode Representations",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          48.858343720436096,
+          52.6751708984375
+        ],
+        [
+          564.0591702461243,
+          52.6751708984375
+        ],
+        [
+          564.0591702461243,
+          104.90399169921875
+        ],
+        [
+          48.858343720436096,
+          104.90399169921875
+        ]
+      ]
+    },
+    {
+      "title": "I. INTRODUCTION",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          134.26374650001526,
+          528.5346984863281
+        ],
+        [
+          213.37173461914062,
+          528.5346984863281
+        ],
+        [
+          213.37173461914062,
+          538.497314453125
+        ],
+        [
+          134.26374650001526,
+          538.497314453125
+        ]
+      ]
+    },
+    {
+      "title": "II. RELATED WORK",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          393.720281124115,
+          574.9955444335938
+        ],
+        [
+          480.4929356575012,
+          574.9955444335938
+        ],
+        [
+          480.4929356575012,
+          584.9581451416016
+        ],
+        [
+          393.720281124115,
+          584.9581451416016
+        ]
+      ]
+    },
+    {
+      "title": "III. THE COMEX PACKAGE",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          115.73387664556503,
+          571.0802154541016
+        ],
+        [
+          230.86160278320312,
+          571.0802154541016
+        ],
+        [
+          230.86160278320312,
+          581.5528717041016
+        ],
+        [
+          115.73387664556503,
+          581.5528717041016
+        ]
+      ]
+    },
+    {
+      "title": "A. Abstract Syntax Tree",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          310.945072889328,
+          464.6777648925781
+        ],
+        [
+          410.0299377441406,
+          464.6777648925781
+        ],
+        [
+          410.0299377441406,
+          474.6403503417969
+        ],
+        [
+          310.945072889328,
+          475.5614347457886
+        ]
+      ]
+    },
+    {
+      "title": "B. Control-Flow Graph",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          311.82353711128235,
+          656.8760070800781
+        ],
+        [
+          409.9680755138397,
+          656.7174067497253
+        ],
+        [
+          409.9680755138397,
+          666.8386077880859
+        ],
+        [
+          311.82353711128235,
+          667.5461926460266
+        ]
+      ]
+    },
+    {
+      "title": "C. Data-Flow Graph",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          311.28078031539917,
+          405.4160461425781
+        ],
+        [
+          399.74499464035034,
+          405.00074672698975
+        ],
+        [
+          399.1706848144531,
+          415.3786315917969
+        ],
+        [
+          310.08546781539917,
+          415.88967418670654
+        ]
+      ]
+    },
+    {
+      "title": "D. Combinations and Customizations",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          48.67134815454483,
+          169.39306640625
+        ],
+        [
+          203.4389190673828,
+          169.39306640625
+        ],
+        [
+          202.9060821533203,
+          179.35565185546875
+        ],
+        [
+          47.47603565454483,
+          179.35565185546875
+        ]
+      ]
+    },
+    {
+      "title": "IV. DISCUSSION AND LIMITATIONS",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          98.03699201345444,
+          304.4805603027344
+        ],
+        [
+          251.04221749305725,
+          304.4805603027344
+        ],
+        [
+          250.0450439453125,
+          314.44317626953125
+        ],
+        [
+          96.84167951345444,
+          314.44317626953125
+        ]
+      ]
+    },
+    {
+      "title": "V. CONCLUSION AND FUTURE WORK",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          93.7365773320198,
+          488.357421875
+        ],
+        [
+          253.9961700439453,
+          488.357421875
+        ],
+        [
+          253.9961700439453,
+          498.3200378417969
+        ],
+        [
+          92.5412648320198,
+          498.3200378417969
+        ]
+      ]
+    },
+    {
+      "title": "REFERENCES",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          146.59796142578125,
+          660.2794342041016
+        ],
+        [
+          202.3984375,
+          660.2794342041016
+        ],
+        [
+          202.3984375,
+          670.2420425415039
+        ],
+        [
+          146.59796142578125,
+          670.2420425415039
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          303
+        ],
+        [
+          "Line",
+          104
+        ],
+        [
+          "Text",
+          12
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Footnote",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          217
+        ],
+        [
+          "Line",
+          63
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "Reference",
+          5
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Footnote",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          176
+        ],
+        [
+          "Line",
+          56
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          390
+        ],
+        [
+          "Line",
+          122
+        ],
+        [
+          "ListItem",
+          23
+        ],
+        [
+          "Reference",
+          20
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "Footnote",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/b6a5f3584d1fc8807d634e1b9114d2f0370ca6cd47e03dfa55d938fa015f02e3"
+}
